@@ -42,45 +42,42 @@ Elevator-EdgeAI-Safety-Monitor/
 └── data/                    # 測試影像與影片存放區 (未上傳大型檔案)
 ```
 ## 🚀 快速啟動 (Quick Start)
-
-### 1. 系統需求
+## 1. 系統需求
 * 已安裝 **Docker** 與 **Docker Compose**。
 * 已安裝 **NVIDIA 驅動程式** 與 **NVIDIA Container Toolkit** (以支援 RTX 4050 等 GPU 加速)。
 
-### 2. 安裝與設定
+## 2. 安裝與設定
 
-# 複製專案
+### 複製專案
 ```
 bash
 git clone [https://github.com/minglkk749-maker/Elevator-EdgeAI-Safety-Monitor.git](https://github.com/minglkk749-maker/Elevator-EdgeAI-Safety-Monitor.git)
 cd Elevator-EdgeAI-Safety-Monitor
 ```
-# 設定環境變數
+### 設定環境變數
 cp .env.example .env
-# 請編輯 .env 檔案，填寫必要的設定參數
+### 請編輯 .env 檔案，填寫必要的設定參數
 
-### 3. 一鍵啟動系統
-# 將測試用的影像或影片放入 data/ 資料夾中，然後執行：
-
-
+## 3. 一鍵啟動系統
+### 將測試用的影像或影片放入 data/ 資料夾中，然後執行：
 ```
 bash
 docker compose up --build -d
 ```
-# 說明：系統將在背景自動啟動 Mosquitto 通訊伺服器與 AI 監控程式。
+### 說明：系統將在背景自動啟動 Mosquitto 通訊伺服器與 AI 監控程式。
 
-### 4. 監聽警報數據
-# 可使用 MQTT 客戶端（或 Mosquitto 指令）訂閱本地的警告主題以驗證數據：
+## 4. 監聽警報數據
+### 可使用 MQTT 客戶端（或 Mosquitto 指令）訂閱本地的警告主題以驗證數據：
 ```
 Bash
 mosquitto_sub -h localhost -p 1883 -t "elevator/safety/overcrowd"
 ```
-# 👨‍💻 作者 (Author)
-# Arvin Liau | Edge AI Engineer / IoT System Integrator
+### 👨‍💻 作者 (Author)
+### Arvin Liau | Edge AI Engineer / IoT System Integrator
 
-# 專業背景：擁有 5 年電梯維護實務經驗，專注於將物理世界硬體邏輯轉型為 AIoT 數據應用。
+### 專業背景：擁有 5 年電梯維護實務經驗，專注於將物理世界硬體邏輯轉型為 AIoT 數據應用。
 
-# GitHub: @minglkk749-maker
+### GitHub: @minglkk749-maker
 
 
 
