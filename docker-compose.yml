@@ -1,0 +1,29 @@
+services:
+  # AI 推論服務
+  ai-guard:
+    build: .
+    container_name: elevator-ai-container
+    volumes:
+      - .:/app
+    working_dir: /app
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: 1
+              capabilities: [gpu]
+    environment:
+      - NVIDIA_VISIBLE_DEVICES=all
+    depends_on:
+      - mosquitto
+    command: python3 elevator_ai_guard_v2.py
+
+  # 本地 Mosquitto MQTT Broker
+  mosquitto:
+    image: eclipse-mosquitto:latest
+    container_name: local-mqtt-broker
+    ports:
+      - "1883:1883"
+    volumes:
+      - ./mosquitto.conf:/mosquitto/config/mosquitto.conf

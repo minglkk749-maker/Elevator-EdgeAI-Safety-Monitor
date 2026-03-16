@@ -1,0 +1,19 @@
+# 1. 資安機密 
+.env
+
+# 2. AI 模型權重 (檔案太大，由使用者自行透過腳本下載)
+*.pt
+*.onnx
+
+# 3. 測試數據與影像 (保留目錄結構，但不傳送大型影片)
+data/*.mp4
+data/*.jpg
+runs/
+
+# 4. 系統與通訊日誌
+mosquitto/log/*
+*.log
+
+# 5. Python 暫存檔
+__pycache__/
+*.pyc
