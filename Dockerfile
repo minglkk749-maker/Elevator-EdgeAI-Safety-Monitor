@@ -14,3 +14,7 @@ RUN apt-get update && apt-get install -y \
 
 # 安裝 2026 AIoT 核心套件
 RUN pip3 install opencv-python ultralytics numpy python-dotenv paho-mqtt
+
+# 每分鐘檢查一次 Python 程式是否還活著
+HEALTHCHECK --interval=60s --timeout=10s \
+  CMD pgrep -f elevator_ai_guard_v2.py || exit 1

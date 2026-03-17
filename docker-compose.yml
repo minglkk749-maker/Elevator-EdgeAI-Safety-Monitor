@@ -3,6 +3,7 @@ services:
   ai-guard:
     build: .
     container_name: elevator-ai-container
+    restart: always  # <--- 加入此行：確保系統重啟後自動恢復推論任務
     volumes:
       - .:/app
     working_dir: /app
@@ -23,6 +24,7 @@ services:
   mosquitto:
     image: eclipse-mosquitto:latest
     container_name: local-mqtt-broker
+    restart: always  # <--- 加入此行：確保通訊骨幹始終在線
     ports:
       - "1883:1883"
     volumes:
