@@ -55,7 +55,10 @@ git clone [https://github.com/minglkk749-maker/Elevator-EdgeAI-Safety-Monitor.gi
 cd Elevator-EdgeAI-Safety-Monitor
 ```
 ### 設定環境變數
+```
+Bash
 cp .env.example .env
+```
 ### 請編輯 .env 檔案，填寫必要的設定參數
 
 ## 3. 一鍵啟動系統
@@ -72,6 +75,14 @@ docker compose up --build -d
 Bash
 mosquitto_sub -h localhost -p 1883 -t "elevator/safety/overcrowd"
 ```
+
+## 🕒 更新紀錄 (Changelog)
+| 日期 | 更新項目 | 目的 |
+| :--- | :--- | :--- |
+| 2026-03-17 | 導入 **自癒機制 (Self-healing)** | 確保影像串流與 MQTT 閃斷後能自動恢復，維持系統高稼動率。 |
+| 2026-03-17 | 配置 **Docker 健康檢查** | 提升邊緣端設備的遠端監控能力與系統底層強健性。 |
+| 2026-03-17 | 實施 **防禦性程式設計** | [cite_start]透過環境變數預設值處理，避免因設定檔缺失導致系統停機，優化 MTTR 。 |
+
 ### 👨‍💻 作者 (Author)
 ### Arvin Liau | Edge AI Engineer / IoT System Integrator
 
